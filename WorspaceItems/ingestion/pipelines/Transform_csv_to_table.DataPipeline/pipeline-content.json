@@ -35,6 +35,7 @@
           ],
           "storeSettings": {
             "type": "LakehouseReadSettings",
+            "recursive": true,
             "enablePartitionDiscovery": false
           },
           "formatSettings": {
@@ -69,7 +70,7 @@
                     "type": "DelimitedTextReadSettings"
                   },
                   "storeSettings": {
-                    "type": "LakehouseReadSettings",
+                    "type": "AzureBlobStorageReadSettings",
                     "recursive": true,
                     "enablePartitionDiscovery": false
                   },
@@ -84,7 +85,7 @@
                           "type": "Expression"
                         }
                       },
-                      "columnDelimiter": ",",
+                      "columnDelimiter": "|",
                       "quoteChar": "\"",
                       "escapeChar": "\\",
                       "firstRowAsHeader": true
