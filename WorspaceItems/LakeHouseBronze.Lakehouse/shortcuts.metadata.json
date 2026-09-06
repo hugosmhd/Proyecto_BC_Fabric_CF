@@ -1,1 +1,14 @@
-[]
+[
+  {
+    "name": "tech-retail-corp",
+    "path": "/Files",
+    "target": {
+      "type": "AdlsGen2",
+      "adlsGen2": {
+        "connectionId": "40598521-6605-44aa-89dd-597fc531be9e",
+        "location": "https://samftechretailcorp.dfs.core.windows.net",
+        "subpath": "/tech-retail-corp"
+      }
+    }
+  }
+]
