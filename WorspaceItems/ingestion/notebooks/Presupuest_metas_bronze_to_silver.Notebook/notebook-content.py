@@ -36,7 +36,7 @@ from pyspark.sql.functions import col, to_date
 
 # CELL ********************
 
-df_presupuesto = (spark.table("LakeHouseBronze.dbo.presupuesto_metas")
+df_presupuesto = (spark.table("LakeHouseBronze.bronze.presupuesto_metas")
                     .withColumn("tienda_id", col("tienda_id").cast("int"))
                     .withColumn("anio_mes", to_date(col("anio_mes"), "yyyy/MM"))
                     .withColumn("meta_venta", col("meta_venta").cast("decimal(18,2)"))
@@ -147,7 +147,7 @@ display(df_presupuesto_final.limit(10))
 
 # CELL ********************
 
-df_presupuesto_final.write.format("delta").mode("overwrite").saveAsTable("presupuesto")
+df_presupuesto_final.write.format("delta").mode("overwrite").saveAsTable("silver.presupuesto")
 
 # METADATA ********************
 
@@ -159,7 +159,7 @@ df_presupuesto_final.write.format("delta").mode("overwrite").saveAsTable("presup
 # CELL ********************
 
 # MAGIC %%sql
-# MAGIC SELECT * FROM presupuesto
+# MAGIC SELECT * FROM silver.presupuesto
 # MAGIC LIMIT 10;
 
 # METADATA ********************

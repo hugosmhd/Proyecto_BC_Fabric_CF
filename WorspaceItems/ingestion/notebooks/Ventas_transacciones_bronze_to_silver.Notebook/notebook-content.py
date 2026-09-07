@@ -37,7 +37,7 @@ from pyspark.sql.functions import col, coalesce, initcap, lit, to_date, to_times
 # CELL ********************
 
 df_ventas_transacciones = (
-    spark.table("LakeHouseBronze.dbo.ventas_transacciones")
+    spark.table("LakeHouseBronze.bronze.ventas_transacciones")
     .withColumn("fecha", to_date(col("fecha"), "yyyy/MM/dd"))
     .withColumn("hora", to_timestamp(col("hora"), "HH:mm:ss"))
     .withColumn("tienda_id", col("tienda_id").cast("int"))
@@ -254,7 +254,7 @@ df_ventas_final = spark.createDataFrame(
 
 # CELL ********************
 
-df_ventas_final.write.format("delta").mode("overwrite").saveAsTable("ventas_enriquecidas")
+df_ventas_final.write.format("delta").mode("overwrite").saveAsTable("silver.ventas_enriquecidas")
 
 # METADATA ********************
 
@@ -266,7 +266,7 @@ df_ventas_final.write.format("delta").mode("overwrite").saveAsTable("ventas_enri
 # CELL ********************
 
 # MAGIC %%sql
-# MAGIC SELECT * FROM ventas_enriquecidas
+# MAGIC SELECT * FROM silver.ventas_enriquecidas
 # MAGIC LIMIT 10;
 
 # METADATA ********************
@@ -289,7 +289,7 @@ display(df_ventas_rechazados_final.limit(10))
 
 # CELL ********************
 
-df_ventas_rechazados_final.write.format("delta").mode("overwrite").saveAsTable("rechazos_ventas")
+df_ventas_rechazados_final.write.format("delta").mode("overwrite").saveAsTable("silver.rechazos_ventas")
 
 # METADATA ********************
 
@@ -301,7 +301,7 @@ df_ventas_rechazados_final.write.format("delta").mode("overwrite").saveAsTable("
 # CELL ********************
 
 # MAGIC %%sql
-# MAGIC SELECT * FROM rechazos_ventas
+# MAGIC SELECT * FROM silver.rechazos_ventas
 # MAGIC LIMIT 10;
 
 # METADATA ********************

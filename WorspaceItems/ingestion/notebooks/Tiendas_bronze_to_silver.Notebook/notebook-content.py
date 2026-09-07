@@ -46,7 +46,7 @@ from pyspark.sql.functions import col, to_date
 # CELL ********************
 
 df_tienda = (
-    spark.table("LakeHouseBronze.dbo.tiendas")
+    spark.table("LakeHouseBronze.bronze.tiendas")
     .withColumn("tienda_id", col("tienda_id").cast("int"))
     .withColumn("fecha_apertura", to_date(col("fecha_apertura"), "yyyy/MM/dd"))
     #.withColumn("fecha_apertura", col("fecha_apertura").cast("date"))
@@ -205,7 +205,7 @@ df_tienda_final.printSchema()
 
 # CELL ********************
 
-df_tienda_final.write.format("delta").mode("overwrite").saveAsTable("dim_tienda")
+df_tienda_final.write.format("delta").mode("overwrite").saveAsTable("silver.dim_tienda")
 
 # METADATA ********************
 
@@ -217,7 +217,7 @@ df_tienda_final.write.format("delta").mode("overwrite").saveAsTable("dim_tienda"
 # CELL ********************
 
 # MAGIC %%sql
-# MAGIC SELECT * FROM dim_tienda
+# MAGIC SELECT * FROM silver.dim_tienda
 # MAGIC LIMIT 10;
 
 # METADATA ********************

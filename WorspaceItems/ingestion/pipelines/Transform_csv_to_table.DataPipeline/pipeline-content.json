@@ -115,7 +115,7 @@
                   "datasetSettings": {
                     "type": "LakehouseTable",
                     "typeProperties": {
-                      "schema": "dbo",
+                      "schema": "bronze",
                       "table": {
                         "value": "@replace(item().name, '.csv', '')",
                         "type": "Expression"

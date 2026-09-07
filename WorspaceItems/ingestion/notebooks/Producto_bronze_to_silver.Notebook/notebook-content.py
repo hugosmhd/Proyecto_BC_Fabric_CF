@@ -41,7 +41,7 @@ from pyspark.sql.functions import col, trim, initcap
 # CELL ********************
 
 df_producto = (
-    spark.table("LakeHouseBronze.dbo.productos")
+    spark.table("LakeHouseBronze.bronze.productos")
     .withColumn("costo_unitario", col("costo_unitario").cast("decimal(18,2)"))
     .withColumn("nombre_producto", trim(col("nombre_producto")))
     .withColumn("categoria", initcap(trim(col("categoria"))))
@@ -177,7 +177,7 @@ df_producto_final.printSchema()
 
 # CELL ********************
 
-df_producto_final.write.format("delta").mode("overwrite").saveAsTable("dim_producto")
+df_producto_final.write.format("delta").mode("overwrite").saveAsTable("silver.dim_producto")
 
 # METADATA ********************
 
@@ -200,7 +200,7 @@ df_producto_final.count()
 # CELL ********************
 
 # MAGIC %%sql
-# MAGIC SELECT * FROM dim_producto
+# MAGIC SELECT * FROM silver.dim_producto
 # MAGIC LIMIT 10;
 
 # METADATA ********************

@@ -37,7 +37,7 @@ from pyspark.sql.functions import col, to_date, trim
 # CELL ********************
 
 df_empleados = (
-    spark.table("LakeHouseBronze.dbo.empleados")
+    spark.table("LakeHouseBronze.bronze.empleados")
     .withColumn("empleado_id", col("empleado_id").cast("int"))
     .withColumn("tienda_id", col("tienda_id").cast("int"))
     .withColumn("fecha_ingreso", to_date(col("fecha_ingreso"), "yyyy/MM/dd"))
@@ -182,7 +182,7 @@ df_empleados_final.printSchema()
 
 # CELL ********************
 
-df_empleados_final.write.format("delta").mode("overwrite").saveAsTable("dim_empleado")
+df_empleados_final.write.format("delta").mode("overwrite").saveAsTable("silver.dim_empleado")
 
 # METADATA ********************
 
@@ -205,7 +205,7 @@ df_empleados_final.count()
 # CELL ********************
 
 # MAGIC %%sql
-# MAGIC SELECT * FROM dim_empleado
+# MAGIC SELECT * FROM silver.dim_empleado
 # MAGIC LIMIT 10;
 
 # METADATA ********************

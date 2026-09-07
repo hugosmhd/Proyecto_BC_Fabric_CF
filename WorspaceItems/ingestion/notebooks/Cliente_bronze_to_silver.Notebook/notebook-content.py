@@ -37,7 +37,7 @@ from pyspark.sql.functions import col, to_date, lit, coalesce
 # CELL ********************
 
 df_clientes = (
-    spark.table("LakeHouseBronze.dbo.clientes")
+    spark.table("LakeHouseBronze.bronze.clientes")
     .withColumn("cliente_id", col("cliente_id").cast("int"))
     .withColumn("fecha_registro", to_date(col("fecha_registro"), "yyyy/MM/dd"))
     .withColumn("tier_lealtad", coalesce(col("tier_lealtad"), lit("Sin Tier")))
@@ -149,7 +149,7 @@ df_clientes_final.printSchema()
 
 # CELL ********************
 
-df_clientes_final.write.format("delta").mode("overwrite").saveAsTable("dim_cliente")
+df_clientes_final.write.format("delta").mode("overwrite").saveAsTable("silver.dim_cliente")
 
 # METADATA ********************
 
@@ -161,7 +161,7 @@ df_clientes_final.write.format("delta").mode("overwrite").saveAsTable("dim_clien
 # CELL ********************
 
 # MAGIC %%sql
-# MAGIC SELECT * FROM dim_cliente
+# MAGIC SELECT * FROM silver.dim_cliente
 # MAGIC LIMIT 10;
 
 # METADATA ********************
