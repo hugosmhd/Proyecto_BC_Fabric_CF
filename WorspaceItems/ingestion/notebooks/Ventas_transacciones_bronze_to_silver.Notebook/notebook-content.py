@@ -138,6 +138,7 @@ from pyspark.sql.types import StructType, StructField, IntegerType, DateType, De
 
 ventas_schema = StructType(fields= [
     StructField("transaccion_id", StringType(), False),
+    StructField("fecha", DateType(), False),
     StructField("tienda_id", IntegerType(), False),
     StructField("empleado_id", IntegerType(), False),
     StructField("cliente_id", IntegerType(), True),
@@ -213,7 +214,7 @@ df_ventas_rechazados_with_date_and_time = df_rechazados.withColumn(
 # CELL ********************
 
 df_ventas_dropped = df_ventas_with_date_and_time.drop(
-    df_ventas_with_date_and_time["fecha"],
+    # df_ventas_with_date_and_time["fecha"],
     df_ventas_with_date_and_time["hora"]
 )
 
@@ -227,7 +228,7 @@ df_ventas_dropped = df_ventas_with_date_and_time.drop(
 # CELL ********************
 
 df_ventas_rechazados_final = df_ventas_rechazados_with_date_and_time.drop(
-    df_ventas_rechazados_with_date_and_time["fecha"],
+    # df_ventas_rechazados_with_date_and_time["fecha"],
     df_ventas_rechazados_with_date_and_time["hora"]
 )
 
