@@ -1,0 +1,333 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "2e59e8d3d045b9d7005d",
+  "position": {
+    "x": 960.00000000000011,
+    "y": 682.85714285714289,
+    "z": 6000,
+    "height": 300,
+    "width": 618.57142857142856,
+    "tabOrder": 6000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DimEmpleado"
+                    }
+                  },
+                  "Property": "nombre_completo"
+                }
+              },
+              "queryRef": "DimEmpleado.nombre_completo",
+              "nativeQueryRef": "Empleado",
+              "displayName": "Empleado"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DimEmpleado"
+                    }
+                  },
+                  "Property": "puesto"
+                }
+              },
+              "queryRef": "DimEmpleado.puesto",
+              "nativeQueryRef": "Puesto",
+              "displayName": "Puesto"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DimTienda"
+                    }
+                  },
+                  "Property": "tienda_id"
+                }
+              },
+              "queryRef": "DimTienda.tienda_id",
+              "nativeQueryRef": "Tienda",
+              "displayName": "Tienda"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DimTienda"
+                    }
+                  },
+                  "Property": "region"
+                }
+              },
+              "queryRef": "DimTienda.region",
+              "nativeQueryRef": "Region",
+              "displayName": "Region"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DimEmpleado"
+                        }
+                      },
+                      "Property": "salario"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(DimEmpleado.salario)",
+              "nativeQueryRef": "Salario",
+              "displayName": "Salario"
+            },
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "PropertyVariationSource": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "DimEmpleado"
+                            }
+                          },
+                          "Name": "Variación",
+                          "Property": "fecha_ingreso"
+                        }
+                      },
+                      "Hierarchy": "Jerarquía de fechas"
+                    }
+                  },
+                  "Level": "Año"
+                }
+              },
+              "queryRef": "DimEmpleado.fecha_ingreso.Variación.Jerarquía de fechas.Año",
+              "nativeQueryRef": "fecha_ingreso Año"
+            },
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "PropertyVariationSource": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "DimEmpleado"
+                            }
+                          },
+                          "Name": "Variación",
+                          "Property": "fecha_ingreso"
+                        }
+                      },
+                      "Hierarchy": "Jerarquía de fechas"
+                    }
+                  },
+                  "Level": "Mes"
+                }
+              },
+              "queryRef": "DimEmpleado.fecha_ingreso.Variación.Jerarquía de fechas.Mes",
+              "nativeQueryRef": "fecha_ingreso Mes"
+            },
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "PropertyVariationSource": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "DimEmpleado"
+                            }
+                          },
+                          "Name": "Variación",
+                          "Property": "fecha_ingreso"
+                        }
+                      },
+                      "Hierarchy": "Jerarquía de fechas"
+                    }
+                  },
+                  "Level": "Día"
+                }
+              },
+              "queryRef": "DimEmpleado.fecha_ingreso.Variación.Jerarquía de fechas.Día",
+              "nativeQueryRef": "fecha_ingreso Día"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "06ef7b6308e190a0c0b7",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimEmpleado"
+              }
+            },
+            "Property": "nombre_completo"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "8697975d0546260e23e7",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimEmpleado"
+              }
+            },
+            "Property": "puesto"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "995e8f05d7206c98c031",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimTienda"
+              }
+            },
+            "Property": "tienda_id"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "81c9b486d04db6a63515",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimTienda"
+              }
+            },
+            "Property": "region"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "468bff749aa00352150d",
+        "field": {
+          "HierarchyLevel": {
+            "Expression": {
+              "Hierarchy": {
+                "Expression": {
+                  "PropertyVariationSource": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "DimEmpleado"
+                      }
+                    },
+                    "Name": "Variación",
+                    "Property": "fecha_ingreso"
+                  }
+                },
+                "Hierarchy": "Jerarquía de fechas"
+              }
+            },
+            "Level": "Año"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "5b441ae461965a90434e",
+        "field": {
+          "HierarchyLevel": {
+            "Expression": {
+              "Hierarchy": {
+                "Expression": {
+                  "PropertyVariationSource": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "DimEmpleado"
+                      }
+                    },
+                    "Name": "Variación",
+                    "Property": "fecha_ingreso"
+                  }
+                },
+                "Hierarchy": "Jerarquía de fechas"
+              }
+            },
+            "Level": "Mes"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "a662a8b1b603c57354b7",
+        "field": {
+          "HierarchyLevel": {
+            "Expression": {
+              "Hierarchy": {
+                "Expression": {
+                  "PropertyVariationSource": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "DimEmpleado"
+                      }
+                    },
+                    "Name": "Variación",
+                    "Property": "fecha_ingreso"
+                  }
+                },
+                "Hierarchy": "Jerarquía de fechas"
+              }
+            },
+            "Level": "Día"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "099c96fe610c100c7475",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "DimEmpleado"
+                  }
+                },
+                "Property": "salario"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

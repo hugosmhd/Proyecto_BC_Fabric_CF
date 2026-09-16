@@ -1,0 +1,70 @@
+table real_vs_presupuesto
+	lineageTag: 5a7f9682-f165-4ae6-8aca-cf5f66304799
+
+	column tienda_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 135059c1-d796-4092-b1a0-5bc5b7496e18
+		summarizeBy: none
+		sourceColumn: tienda_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column anio_mes
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 4e00cb9f-a946-4ac9-8b65-c9bcf788ac00
+		summarizeBy: none
+		sourceColumn: anio_mes
+
+		variation Variación
+			isDefault
+			relationship: 33109919-2103-4eb4-bd6e-b97f901bd4ad
+			defaultHierarchy: LocalDateTable_bb8d9855-3d35-4afc-a9ae-a9877f908f09.'Jerarquía de fechas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column venta_total_real
+		dataType: double
+		lineageTag: dcbc9f2b-41ee-4b9c-aabe-a92d07063450
+		summarizeBy: sum
+		sourceColumn: venta_total_real
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column meta_venta
+		dataType: double
+		lineageTag: e61efbc3-8e96-42b5-a84f-00962d48dcc0
+		summarizeBy: sum
+		sourceColumn: meta_venta
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column variacion_pct
+		dataType: double
+		lineageTag: edebc641-43af-4a96-81ca-9fb45515e6b5
+		summarizeBy: sum
+		sourceColumn: variacion_pct
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition real_vs_presupuesto = m
+		mode: import
+		source =
+				let
+				    Origen = Sql.Databases("fxboiim5iaxevdrrqunv7n6l3q-ee4cunwqyk6utl3kpflne3zap4.datawarehouse.fabric.microsoft.com"),
+				    WareHouseGold = Origen{[Name="WareHouseGold"]}[Data],
+				    gold_real_vs_presupuesto = WareHouseGold{[Schema="gold",Item="real_vs_presupuesto"]}[Data]
+				in
+				    gold_real_vs_presupuesto
+
+	annotation PBI_ResultType = Table
+

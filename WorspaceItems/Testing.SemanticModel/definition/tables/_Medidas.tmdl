@@ -1,0 +1,166 @@
+table _Medidas
+	lineageTag: 4326c178-d0b5-4ecf-9169-7a49b367f002
+
+	measure 'Costo Total' =
+			
+			SUM(FactVentas[costo_total])
+		displayFolder: Ventas
+		lineageTag: 04ac3c78-d565-444c-8638-2dae1baca041
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Crecimiento Ventas %' =
+			
+			DIVIDE(
+			    [Ventas Totales] - [Ventas Año Anterior],
+			    [Ventas Año Anterior],
+			    0
+			)
+		displayFolder: Ventas
+		lineageTag: 3b9667a7-06a1-44cb-86b2-db530e200f3c
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Cumplimiento %' =
+			
+			DIVIDE(
+			    [Venta Real],
+			    [Meta Venta],
+			    0
+			)
+		displayFolder: Ventas
+		lineageTag: ba62275b-203f-4c48-bcfb-7998d7aef5fc
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure Margen =
+			
+			[Ventas Totales] - [Costo Total]
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		displayFolder: Ventas
+		lineageTag: ea63a571-475c-4fa0-840a-b8407c32173e
+
+	measure 'Margen %' =
+			
+			DIVIDE(
+			    [Margen],
+			    [Ventas Totales],
+			    0
+			)
+		displayFolder: Ventas
+		lineageTag: f9b82361-5056-4ee9-a49e-d960c98f0762
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Meta Venta' =
+			
+			SUM(real_vs_presupuesto[meta_venta])
+		displayFolder: Ventas
+		lineageTag: d3e4e8ef-2bbf-4a85-a12f-e8e7085a655b
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Ticket Promedio' =
+			
+			DIVIDE(
+			    [Ventas Totales],
+			    [Transacciones],
+			    0
+			)
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		displayFolder: Ventas
+		lineageTag: 53a77389-eb7b-4784-b2a4-f5f08da9421b
+
+	measure Transacciones =
+			
+			DISTINCTCOUNT(FactVentas[transaccion_id])
+		formatString: 0
+		displayFolder: Ventas
+		lineageTag: 0d406ec1-5436-4070-ae3f-c401fc3d69e6
+
+	measure 'Unidades Vendidas' =
+			
+			SUM(FactVentas[cantidad])
+		formatString: 0
+		displayFolder: Ventas
+		lineageTag: 1b93e281-b1ce-42ce-ba25-f75db2b2988d
+
+	measure 'Variación %' =
+			
+			DIVIDE(
+			    [Variación $],
+			    [Meta Venta],
+			    0
+			)
+		displayFolder: Ventas
+		lineageTag: a0435941-b500-46ca-8f4f-b7b73245c01c
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Variación $' =
+			
+			[Venta Real] - [Meta Venta]
+		displayFolder: Ventas
+		lineageTag: fd9fb6e9-567c-4a7b-bd15-37e13a8e0374
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Venta Real' =
+			
+			SUM(real_vs_presupuesto[venta_total_real])
+		displayFolder: Ventas
+		lineageTag: 3642f8e5-450c-4a79-b4cf-b6c96d6b6aaf
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Ventas Año Anterior' =
+			
+			CALCULATE(
+			    [Ventas Totales],
+			    SAMEPERIODLASTYEAR(DimFecha[fecha])
+			)
+		displayFolder: Ventas
+		lineageTag: ef08a64c-0f35-4af4-8e4d-456a7a546f7f
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Ventas Totales' =
+			
+			SUM(FactVentas[venta_total])
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		displayFolder: Ventas
+		lineageTag: 8631b8ca-7977-4b00-b64a-b02b4a59ecaa
+
+	measure Puestos =
+			
+			DISTINCTCOUNT(DimEmpleado[puesto])
+		formatString: 0
+		displayFolder: RRHH
+		lineageTag: fb547e09-2e3a-4e72-9afd-9b2fe64ca2cf
+
+	measure 'Tiendas con Empleados' =
+			
+			DISTINCTCOUNT(DimEmpleado[tienda_id])
+		formatString: 0
+		displayFolder: RRHH
+		lineageTag: 1f163b18-0ebc-4cfc-90f6-567c1d77109c
+
+	measure 'Total Empleados' =
+			
+			DISTINCTCOUNT(DimEmpleado[empleado_id])
+		formatString: 0
+		displayFolder: RRHH
+		lineageTag: 5164f1ad-515f-422d-a661-f5babf8d0ce3
+
+	partition _Medidas = m
+		mode: import
+		source =
+				let
+				    Origen = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i45Wyk1NyUxJLFaKjQUA", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Columna1 = _t]),
+				    #"Tipo cambiado" = Table.TransformColumnTypes(Origen,{{"Columna1", type text}}),
+				    #"Columnas quitadas" = Table.RemoveColumns(#"Tipo cambiado",{"Columna1"})
+				in
+				    #"Columnas quitadas"
+
+	annotation PBI_ResultType = Table
+

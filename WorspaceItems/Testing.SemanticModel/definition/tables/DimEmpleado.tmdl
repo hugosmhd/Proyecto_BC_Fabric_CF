@@ -1,0 +1,92 @@
+table DimEmpleado
+	lineageTag: 0eb762c5-0fd5-4028-ad59-027800a88ffc
+
+	column empleado_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 07226da6-be58-41ea-88b4-000f99a6064b
+		summarizeBy: none
+		sourceColumn: empleado_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column empleado_id
+		dataType: int64
+		formatString: 0
+		lineageTag: fe20bc1c-14cf-43f3-834b-9df9d29d2459
+		summarizeBy: sum
+		sourceColumn: empleado_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column nombre_completo
+		dataType: string
+		lineageTag: 8d60881f-f793-4dfd-9d65-19938a76d813
+		summarizeBy: none
+		sourceColumn: nombre_completo
+
+		annotation SummarizationSetBy = Automatic
+
+	column tienda_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 81d29382-45ad-4465-8907-0b19ee44cec0
+		summarizeBy: none
+		sourceColumn: tienda_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column puesto
+		dataType: string
+		lineageTag: 68377869-fe43-4857-b997-7e859d3ceb5b
+		summarizeBy: none
+		sourceColumn: puesto
+
+		annotation SummarizationSetBy = Automatic
+
+	column fecha_ingreso
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 08743280-0641-467a-862e-64131e324488
+		summarizeBy: none
+		sourceColumn: fecha_ingreso
+
+		variation Variación
+			isDefault
+			relationship: 1c6aa6af-d2dc-418b-85c8-daca373c7322
+			defaultHierarchy: LocalDateTable_f83a86d7-9d31-437a-bc1f-bcd2bc28941a.'Jerarquía de fechas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column salario
+		dataType: double
+		lineageTag: 8014560e-0bfa-4c1a-ba3a-768fe97cfd1c
+		summarizeBy: sum
+		sourceColumn: salario
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column documento_identidad
+		dataType: string
+		lineageTag: efb8e7a1-294c-4f85-b573-03f66a676b21
+		summarizeBy: none
+		sourceColumn: documento_identidad
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimEmpleado = m
+		mode: import
+		source =
+				let
+				    Origen = Sql.Databases("fxboiim5iaxevdrrqunv7n6l3q-ee4cunwqyk6utl3kpflne3zap4.datawarehouse.fabric.microsoft.com"),
+				    WareHouseGold = Origen{[Name="WareHouseGold"]}[Data],
+				    gold_DimEmpleado = WareHouseGold{[Schema="gold",Item="DimEmpleado"]}[Data]
+				in
+				    gold_DimEmpleado
+
+	annotation PBI_ResultType = Table
+

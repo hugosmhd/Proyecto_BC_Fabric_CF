@@ -28,13 +28,13 @@ from pyspark.sql import functions as F
 # 1. Leer Silver
 # ============================================================
 
-ventas = spark.table("dbo.ventas_enriquecidas")
+ventas = spark.table("silver.ventas_enriquecidas")
 
 # Dimensiones
-dim_tienda = spark.table("dbo.dim_tienda")
-dim_producto = spark.table("dbo.dim_producto")
-dim_empleado = spark.table("dbo.dim_empleado")
-dim_cliente = spark.table("dbo.dim_cliente")
+dim_tienda = spark.table("silver.dim_tienda")
+dim_producto = spark.table("silver.dim_producto")
+dim_empleado = spark.table("silver.dim_empleado")
+dim_cliente = spark.table("silver.dim_cliente")
 
 display(ventas.limit(10))
 

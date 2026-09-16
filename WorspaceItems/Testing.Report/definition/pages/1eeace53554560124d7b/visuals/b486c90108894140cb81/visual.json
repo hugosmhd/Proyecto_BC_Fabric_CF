@@ -1,0 +1,196 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "b486c90108894140cb81",
+  "position": {
+    "x": 410,
+    "y": 662,
+    "z": 4002,
+    "height": 300,
+    "width": 610,
+    "tabOrder": 4002
+  },
+  "visual": {
+    "visualType": "barChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DimTienda"
+                    }
+                  },
+                  "Property": "nombre_tienda"
+                }
+              },
+              "queryRef": "DimTienda.nombre_tienda",
+              "nativeQueryRef": "nombre_tienda",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "real_vs_presupuesto"
+                        }
+                      },
+                      "Property": "variacion_pct"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(real_vs_presupuesto.variacion_pct)",
+              "nativeQueryRef": "Suma de variacion_pct"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Aggregation": {
+                "Expression": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "real_vs_presupuesto"
+                      }
+                    },
+                    "Property": "variacion_pct"
+                  }
+                },
+                "Function": 0
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "objects": {
+      "ribbonBands": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "dataPoint": [
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Conditional": {
+                      "Cases": [
+                        {
+                          "Condition": {
+                            "Comparison": {
+                              "ComparisonKind": 3,
+                              "Left": {
+                                "Aggregation": {
+                                  "Expression": {
+                                    "Column": {
+                                      "Expression": {
+                                        "SourceRef": {
+                                          "Entity": "real_vs_presupuesto"
+                                        }
+                                      },
+                                      "Property": "variacion_pct"
+                                    }
+                                  },
+                                  "Function": 0
+                                }
+                              },
+                              "Right": {
+                                "Literal": {
+                                  "Value": "0D"
+                                }
+                              }
+                            }
+                          },
+                          "Value": {
+                            "Literal": {
+                              "Value": "'#de6a73'"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 1
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "5abf33544bc851b2db6d",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimTienda"
+              }
+            },
+            "Property": "nombre_tienda"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "adda4578a703ac010977",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "real_vs_presupuesto"
+                  }
+                },
+                "Property": "variacion_pct"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

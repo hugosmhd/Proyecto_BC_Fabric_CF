@@ -1,0 +1,85 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "baee638bb1a3b9c0e92c",
+  "position": {
+    "x": 311,
+    "y": 442.5,
+    "z": 6000,
+    "height": 300,
+    "width": 1172,
+    "tabOrder": 6000
+  },
+  "visual": {
+    "visualType": "lineChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DimFecha"
+                    }
+                  },
+                  "Property": "nombre_mes"
+                }
+              },
+              "queryRef": "DimFecha.nombre_mes",
+              "nativeQueryRef": "nombre_mes",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas"
+                    }
+                  },
+                  "Property": "Ventas Totales"
+                }
+              },
+              "queryRef": "FactVentas.Ventas Totales",
+              "nativeQueryRef": "Ventas Totales"
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Ventas totales por mes'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "subTitle": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

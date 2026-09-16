@@ -1,0 +1,89 @@
+table DimTienda
+	lineageTag: eec4779f-1118-4566-83b7-286cbafb4ac8
+
+	column tienda_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 131018a3-f74c-48e5-9acd-7113092af320
+		summarizeBy: none
+		sourceColumn: tienda_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column tienda_id
+		dataType: int64
+		formatString: 0
+		lineageTag: f3a8fd85-106a-4ff3-bad5-4371d431194c
+		summarizeBy: none
+		sourceColumn: tienda_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column nombre_tienda
+		dataType: string
+		lineageTag: c8dba296-8171-4ecf-bd08-60a2e62278b8
+		summarizeBy: none
+		sourceColumn: nombre_tienda
+
+		annotation SummarizationSetBy = Automatic
+
+	column ciudad
+		dataType: string
+		lineageTag: 399598dc-12fa-4386-bdc9-20bd7b6a117e
+		summarizeBy: none
+		sourceColumn: ciudad
+
+		annotation SummarizationSetBy = Automatic
+
+	column pais
+		dataType: string
+		lineageTag: a36da8ad-5c32-4957-9396-aa532e371ec0
+		summarizeBy: none
+		sourceColumn: pais
+
+		annotation SummarizationSetBy = Automatic
+
+	column region
+		dataType: string
+		lineageTag: 834c8b1f-f208-4b93-8268-7c92ff9b7cd3
+		summarizeBy: none
+		sourceColumn: region
+
+		annotation SummarizationSetBy = Automatic
+
+	column formato_tienda
+		dataType: string
+		lineageTag: a546bc37-720b-4157-9f6c-57189d79c74b
+		summarizeBy: none
+		sourceColumn: formato_tienda
+
+		annotation SummarizationSetBy = Automatic
+
+	column fecha_apertura
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: e135cb4d-76e2-4563-a795-1d6ca6591ff6
+		summarizeBy: none
+		sourceColumn: fecha_apertura
+
+		variation Variación
+			isDefault
+			relationship: 7128f9e1-371f-4bab-b14a-8dfde5a5ac7e
+			defaultHierarchy: LocalDateTable_f4558818-a7ab-4e37-a7e2-3af77c2530b1.'Jerarquía de fechas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	partition DimTienda = m
+		mode: import
+		source =
+				let
+				    Origen = Sql.Databases("fxboiim5iaxevdrrqunv7n6l3q-ee4cunwqyk6utl3kpflne3zap4.datawarehouse.fabric.microsoft.com"),
+				    WareHouseGold = Origen{[Name="WareHouseGold"]}[Data],
+				    gold_DimTienda = WareHouseGold{[Schema="gold",Item="DimTienda"]}[Data]
+				in
+				    gold_DimTienda
+
+	annotation PBI_ResultType = Table
+

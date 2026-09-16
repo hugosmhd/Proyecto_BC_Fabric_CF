@@ -1,0 +1,62 @@
+relationship bbab928e-5517-4532-86bc-d229865bea13
+	joinOnDateBehavior: datePartOnly
+	fromColumn: DimCliente.fecha_registro
+	toColumn: LocalDateTable_d95f5aef-c8ef-4a60-a411-3738d888bec9.Date
+
+relationship 1c6aa6af-d2dc-418b-85c8-daca373c7322
+	joinOnDateBehavior: datePartOnly
+	fromColumn: DimEmpleado.fecha_ingreso
+	toColumn: LocalDateTable_f83a86d7-9d31-437a-bc1f-bcd2bc28941a.Date
+
+relationship 12b02013-4dfd-4814-8b6a-f2d3d55fa19a
+	joinOnDateBehavior: datePartOnly
+	fromColumn: DimFecha.fecha
+	toColumn: LocalDateTable_07c9cfb2-64c4-46dc-af57-2a04c60a97fc.Date
+
+relationship 7128f9e1-371f-4bab-b14a-8dfde5a5ac7e
+	joinOnDateBehavior: datePartOnly
+	fromColumn: DimTienda.fecha_apertura
+	toColumn: LocalDateTable_f4558818-a7ab-4e37-a7e2-3af77c2530b1.Date
+
+relationship 33109919-2103-4eb4-bd6e-b97f901bd4ad
+	joinOnDateBehavior: datePartOnly
+	fromColumn: real_vs_presupuesto.anio_mes
+	toColumn: LocalDateTable_bb8d9855-3d35-4afc-a9ae-a9877f908f09.Date
+
+relationship AutoDetected_325c9e3e-101b-4039-a898-4a8b0b7a2001
+	fromColumn: FactVentas.cliente_key
+	toColumn: DimCliente.cliente_key
+
+relationship AutoDetected_53f92e0c-0568-4c15-a1a2-e0c45c5a31bb
+	fromColumn: FactVentas.empleado_key
+	toColumn: DimEmpleado.empleado_key
+
+relationship AutoDetected_79fdf9fd-442d-449f-970b-f0b5cf5e9a3f
+	fromColumn: DimEmpleado.tienda_id
+	toColumn: DimTienda.tienda_id
+
+relationship AutoDetected_55f67e75-b3bb-46a4-986f-f6778cf30b78
+	fromColumn: real_vs_presupuesto.tienda_id
+	toColumn: DimTienda.tienda_id
+
+relationship AutoDetected_9a002657-342c-4aa0-b887-6ab6a8d0f422
+	fromColumn: FactVentas.fecha_key
+	toColumn: DimFecha.fecha_key
+
+relationship AutoDetected_50d45f65-05da-49c1-bf75-008a22d15f07
+	fromColumn: ventas_diarias_por_tienda.fecha_key
+	toColumn: DimFecha.fecha_key
+
+relationship AutoDetected_1893a68c-4c03-4cfd-8b90-e8027fff38b7
+	fromColumn: FactVentas.producto_key
+	toColumn: DimProducto.producto_key
+
+relationship AutoDetected_e881209b-4d84-47c0-9657-dd2eadf174ac
+	isActive: false
+	fromColumn: FactVentas.tienda_key
+	toColumn: DimTienda.tienda_key
+
+relationship AutoDetected_9ba694bf-5a74-48d3-99c8-68768d477de9
+	fromColumn: ventas_diarias_por_tienda.tienda_key
+	toColumn: DimTienda.tienda_key
+

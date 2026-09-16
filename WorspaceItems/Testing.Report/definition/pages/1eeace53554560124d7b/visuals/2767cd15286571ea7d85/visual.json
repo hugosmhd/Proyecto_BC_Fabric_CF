@@ -1,0 +1,222 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "2767cd15286571ea7d85",
+  "position": {
+    "x": 410,
+    "y": 311.42857142857144,
+    "z": 4001,
+    "height": 300,
+    "width": 848.75,
+    "tabOrder": 4001
+  },
+  "visual": {
+    "visualType": "lineClusteredColumnComboChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "PropertyVariationSource": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "real_vs_presupuesto"
+                            }
+                          },
+                          "Name": "Variación",
+                          "Property": "anio_mes"
+                        }
+                      },
+                      "Hierarchy": "Jerarquía de fechas"
+                    }
+                  },
+                  "Level": "Mes"
+                }
+              },
+              "queryRef": "real_vs_presupuesto.anio_mes.Variación.Jerarquía de fechas.Mes",
+              "nativeQueryRef": "anio_mes Mes",
+              "active": true
+            },
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "PropertyVariationSource": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "real_vs_presupuesto"
+                            }
+                          },
+                          "Name": "Variación",
+                          "Property": "anio_mes"
+                        }
+                      },
+                      "Hierarchy": "Jerarquía de fechas"
+                    }
+                  },
+                  "Level": "Año"
+                }
+              },
+              "queryRef": "real_vs_presupuesto.anio_mes.Variación.Jerarquía de fechas.Año",
+              "nativeQueryRef": "anio_mes Año",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas"
+                    }
+                  },
+                  "Property": "Venta Real"
+                }
+              },
+              "queryRef": "_Medidas.Venta Real",
+              "nativeQueryRef": "Venta Real"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas"
+                    }
+                  },
+                  "Property": "Meta Venta"
+                }
+              },
+              "queryRef": "_Medidas.Meta Venta",
+              "nativeQueryRef": "Meta Venta"
+            }
+          ]
+        },
+        "Y2": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas"
+                    }
+                  },
+                  "Property": "Cumplimiento %"
+                }
+              },
+              "queryRef": "_Medidas.Cumplimiento %",
+              "nativeQueryRef": "Cumplimiento %"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "e1c25c60d3909bc43b17",
+        "field": {
+          "HierarchyLevel": {
+            "Expression": {
+              "Hierarchy": {
+                "Expression": {
+                  "PropertyVariationSource": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "real_vs_presupuesto"
+                      }
+                    },
+                    "Name": "Variación",
+                    "Property": "anio_mes"
+                  }
+                },
+                "Hierarchy": "Jerarquía de fechas"
+              }
+            },
+            "Level": "Mes"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "2e541a90a480201c56c2",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Medidas"
+              }
+            },
+            "Property": "Venta Real"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "c25ee3e926190d8ce741",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Medidas"
+              }
+            },
+            "Property": "Meta Venta"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "e11a8d6b17158acaa06d",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Medidas"
+              }
+            },
+            "Property": "Cumplimiento %"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "f66053fe8c0d69856a4c",
+        "field": {
+          "HierarchyLevel": {
+            "Expression": {
+              "Hierarchy": {
+                "Expression": {
+                  "PropertyVariationSource": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "real_vs_presupuesto"
+                      }
+                    },
+                    "Name": "Variación",
+                    "Property": "anio_mes"
+                  }
+                },
+                "Hierarchy": "Jerarquía de fechas"
+              }
+            },
+            "Level": "Año"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

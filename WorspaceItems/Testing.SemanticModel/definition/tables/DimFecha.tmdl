@@ -1,0 +1,86 @@
+table DimFecha
+	lineageTag: 2a364040-f212-4970-b958-bc470d8ac636
+
+	column fecha_key
+		dataType: int64
+		formatString: 0
+		lineageTag: d5e3809e-6cde-46bd-a8a5-02343bf79b0e
+		summarizeBy: none
+		sourceColumn: fecha_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column fecha
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: d6d28458-973e-4120-8157-b70df5b5d4d3
+		summarizeBy: none
+		sourceColumn: fecha
+
+		variation Variación
+			isDefault
+			relationship: 12b02013-4dfd-4814-8b6a-f2d3d55fa19a
+			defaultHierarchy: LocalDateTable_07c9cfb2-64c4-46dc-af57-2a04c60a97fc.'Jerarquía de fechas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column anio
+		dataType: int64
+		formatString: 0
+		lineageTag: 34077a5f-bb47-4d46-a7b4-80756053dbde
+		summarizeBy: sum
+		sourceColumn: anio
+
+		annotation SummarizationSetBy = Automatic
+
+	column mes
+		dataType: int64
+		formatString: 0
+		lineageTag: af1477d6-8ec7-4794-8356-19f93c4a5a89
+		summarizeBy: sum
+		sourceColumn: mes
+
+		annotation SummarizationSetBy = Automatic
+
+	column trimestre
+		dataType: int64
+		formatString: 0
+		lineageTag: 84047098-ec6c-46d8-bd8d-520dfcdaed5f
+		summarizeBy: sum
+		sourceColumn: trimestre
+
+		annotation SummarizationSetBy = Automatic
+
+	column nombre_mes
+		dataType: string
+		lineageTag: 47db3218-158c-4f29-ad6c-5961073ef725
+		summarizeBy: none
+		sourceColumn: nombre_mes
+		sortByColumn: mes
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column dia_semana
+		dataType: string
+		lineageTag: 5e4305ad-915e-4883-a2c2-4d84f4521a30
+		summarizeBy: none
+		sourceColumn: dia_semana
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimFecha = m
+		mode: import
+		source =
+				let
+				    Origen = Sql.Databases("fxboiim5iaxevdrrqunv7n6l3q-ee4cunwqyk6utl3kpflne3zap4.datawarehouse.fabric.microsoft.com"),
+				    WareHouseGold = Origen{[Name="WareHouseGold"]}[Data],
+				    gold_DimFecha = WareHouseGold{[Schema="gold",Item="DimFecha"]}[Data]
+				in
+				    gold_DimFecha
+
+	annotation PBI_ResultType = Table
+

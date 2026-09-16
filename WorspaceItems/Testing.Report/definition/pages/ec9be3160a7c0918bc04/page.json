@@ -1,0 +1,8 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
+  "name": "ec9be3160a7c0918bc04",
+  "displayName": "RRHH",
+  "displayOption": "FitToPage",
+  "height": 1080,
+  "width": 1920
+}

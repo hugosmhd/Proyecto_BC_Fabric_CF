@@ -1,0 +1,54 @@
+table ventas_diarias_por_tienda
+	lineageTag: 5b020cb7-200e-4467-895d-614efd4e92f7
+
+	column tienda_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 0e571a88-cff1-478a-bae3-db2a6e714429
+		summarizeBy: none
+		sourceColumn: tienda_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column fecha_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 1fd7316a-a4aa-4227-9d89-df2eb1f889a0
+		summarizeBy: none
+		sourceColumn: fecha_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column venta_total
+		dataType: double
+		lineageTag: 5ca2f744-5ea2-4409-8d32-34a3b3ff1fb6
+		summarizeBy: sum
+		sourceColumn: venta_total
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column unidades_vendidas
+		dataType: int64
+		formatString: 0
+		lineageTag: f75a9ebb-f182-443c-8e66-f7867b917aa7
+		summarizeBy: sum
+		sourceColumn: unidades_vendidas
+
+		annotation SummarizationSetBy = Automatic
+
+	partition ventas_diarias_por_tienda = m
+		mode: import
+		source =
+				let
+				    Origen = Sql.Databases("fxboiim5iaxevdrrqunv7n6l3q-ee4cunwqyk6utl3kpflne3zap4.datawarehouse.fabric.microsoft.com"),
+				    WareHouseGold = Origen{[Name="WareHouseGold"]}[Data],
+				    gold_ventas_diarias_por_tienda = WareHouseGold{[Schema="gold",Item="ventas_diarias_por_tienda"]}[Data]
+				in
+				    gold_ventas_diarias_por_tienda
+
+	annotation PBI_NavigationStepName = Navegación
+
+	annotation PBI_ResultType = Table
+

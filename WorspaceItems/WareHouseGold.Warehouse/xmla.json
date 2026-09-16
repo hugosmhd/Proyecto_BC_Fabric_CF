@@ -856,6 +856,201 @@
             "value": "False"
           }
         ]
+      },
+      {
+        "name": "real_vs_presupuesto",
+        "sourceLineageTag": "[gold].[real_vs_presupuesto]",
+        "columns": [
+          {
+            "name": "tienda_id",
+            "dataType": "int64",
+            "sourceColumn": "tienda_id",
+            "formatString": "0",
+            "sourceProviderType": "int",
+            "sourceLineageTag": "tienda_id",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "anio_mes",
+            "dataType": "dateTime",
+            "sourceColumn": "anio_mes",
+            "formatString": "General Date",
+            "sourceProviderType": "date",
+            "sourceLineageTag": "anio_mes",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "venta_total_real",
+            "dataType": "double",
+            "sourceColumn": "venta_total_real",
+            "sourceProviderType": "decimal",
+            "sourceLineageTag": "venta_total_real",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ]
+          },
+          {
+            "name": "meta_venta",
+            "dataType": "double",
+            "sourceColumn": "meta_venta",
+            "sourceProviderType": "decimal",
+            "sourceLineageTag": "meta_venta",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ]
+          },
+          {
+            "name": "variacion_pct",
+            "dataType": "double",
+            "sourceColumn": "variacion_pct",
+            "sourceProviderType": "decimal",
+            "sourceLineageTag": "variacion_pct",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ]
+          }
+        ],
+        "partitions": [
+          {
+            "name": "{{Partition_Name}}",
+            "mode": "directLake",
+            "source": {
+              "type": "entity",
+              "entityName": "real_vs_presupuesto",
+              "expressionSource": "DatabaseQuery",
+              "schemaName": "gold"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "IsTableInBiModel",
+            "value": "False"
+          }
+        ]
+      },
+      {
+        "name": "ventas_diarias_por_tienda",
+        "sourceLineageTag": "[gold].[ventas_diarias_por_tienda]",
+        "columns": [
+          {
+            "name": "tienda_key",
+            "dataType": "int64",
+            "sourceColumn": "tienda_key",
+            "formatString": "0",
+            "sourceProviderType": "int",
+            "sourceLineageTag": "tienda_key",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "fecha_key",
+            "dataType": "int64",
+            "sourceColumn": "fecha_key",
+            "formatString": "0",
+            "sourceProviderType": "int",
+            "sourceLineageTag": "fecha_key",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "venta_total",
+            "dataType": "double",
+            "sourceColumn": "venta_total",
+            "sourceProviderType": "decimal",
+            "sourceLineageTag": "venta_total",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ]
+          },
+          {
+            "name": "unidades_vendidas",
+            "dataType": "int64",
+            "sourceColumn": "unidades_vendidas",
+            "formatString": "0",
+            "sourceProviderType": "bigint",
+            "sourceLineageTag": "unidades_vendidas",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          }
+        ],
+        "partitions": [
+          {
+            "name": "{{Partition_Name}}",
+            "mode": "directLake",
+            "source": {
+              "type": "entity",
+              "entityName": "ventas_diarias_por_tienda",
+              "expressionSource": "DatabaseQuery",
+              "schemaName": "gold"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "IsTableInBiModel",
+            "value": "False"
+          }
+        ]
       }
     ],
     "expressions": [
