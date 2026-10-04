@@ -1,0 +1,28 @@
+{
+  "queryset": {
+    "version": "1.0.0",
+    "dataSources": [
+      {
+        "id": "acb7b94b-760f-405d-8405-41f07994960b",
+        "clusterUri": "https://trd-gt5ymyzzwaqx6svzye.z8.kusto.fabric.microsoft.com",
+        "type": "Fabric",
+        "databaseItemId": "2fa62385-53cf-4e7f-8280-acb4c5ba48c9"
+      }
+    ],
+    "tabs": [
+      {
+        "id": "77d93117-dc6c-45cf-8dbf-c656e4870e8e",
+        "content": "//***********************************************************************************************************\n// Here are two articles to help you get started with KQL:\n// KQL reference guide - https://aka.ms/KQLguide\n// SQL - KQL conversions - https://aka.ms/sqlcheatsheet\n//***********************************************************************************************************\n\n// Use \"take\" to view a sample number of records in the table and check the data.\nYOUR_TABLE_HERE\n| take 100\n\n// See how many records are in the table.\nYOUR_TABLE_HERE\n| count\n\n// This query returns the number of ingestions per hour in the given table.\nYOUR_TABLE_HERE\n| summarize IngestionCount = count() by bin(ingestion_time(), 1h)\n\n",
+        "title": "Tab",
+        "dataSourceId": "acb7b94b-760f-405d-8405-41f07994960b"
+      },
+      {
+        "id": "bd8e70a9-3ba1-4b82-a7cf-25aa95f05c8c",
+        "content": "// Use 'take' to view a sample number of records in the table and check the data.\n['raw-ventas']\n| take 100\n\n['raw-ventas']\n| extend\n    timestamp_evento = todatetime(timestamp_evento),\n    venta_total = cantidad * precio_unitario *\n                  (1 - todouble(descuento_pct) / 100.0),\n    es_anomalia = descuento_pct >= 50\n\n['raw-ventas']\n| extend\n    timestamp_evento = todatetime(timestamp_evento),\n    venta_total = cantidad * precio_unitario *\n        (1 - todouble(descuento_pct) / 100.0),\n    es_anomalia = descuento_pct >= 50\n| where es_anomalia == true\n\n['raw-ventas']\n| extend\n    timestamp_evento = todatetime(timestamp_evento),\n    venta_total = cantidad * precio_unitario *\n        (1 - todouble(descuento_pct) / 100.0),\n    es_anomalia = descuento_pct >= 50\n| project\n    evento_id,\n    timestamp_evento,\n    tienda_id,\n    empleado_id,\n    sku,\n    cantidad,\n    precio_unitario,\n    descuento_pct,\n    venta_total,\n    es_anomalia\n\n['raw-ventas']\n| extend\n    timestamp_evento = todatetime(timestamp_evento),\n    venta_total = cantidad * precio_unitario *\n        (1 - todouble(descuento_pct) / 100.0),\n    es_anomalia = descuento_pct >= 50\n| where timestamp_evento > ago(30m)\n| where es_anomalia == true\n| summarize\n    anomalías = count(),\n    monto = sum(venta_total)\n    by tienda_id\n| order by anomalías desc\n",
+        "title": "",
+        "dataSourceId": "acb7b94b-760f-405d-8405-41f07994960b"
+      }
+    ],
+    "querysetType": "Embedded"
+  }
+}

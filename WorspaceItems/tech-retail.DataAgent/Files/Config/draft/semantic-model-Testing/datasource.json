@@ -1,0 +1,750 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/dataAgent/definition/dataSource/1.0.0/schema.json",
+  "artifactId": "4302d621-0f41-4e4d-be37-5435073256c9",
+  "workspaceId": "00000000-0000-0000-0000-000000000000",
+  "dataSourceInstructions": null,
+  "displayName": "Testing",
+  "type": "semantic_model",
+  "userDescription": null,
+  "metadata": null,
+  "elements": [
+    {
+      "id": "2e66be0c-e29b-4add-99c9-6cf341385759",
+      "is_selected": true,
+      "display_name": "DimCliente",
+      "type": "semantic_model.table",
+      "description": null,
+      "children": [
+        {
+          "id": "94000d1c-5ad6-45dd-812f-c31dac2796f4",
+          "is_selected": true,
+          "display_name": "cliente_key",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "9f6925de-cf06-4f84-ba49-74da53aae45e",
+          "is_selected": true,
+          "display_name": "cliente_id",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "ea89e8ab-6087-479e-976b-12a7c34a593d",
+          "is_selected": true,
+          "display_name": "nombre_completo",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "9bdde6c6-2e42-40e8-a9c5-a3167d1a6276",
+          "is_selected": true,
+          "display_name": "fecha_registro",
+          "type": "semantic_model.column",
+          "data_type": "DateTime",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "5de3b728-6664-4883-a35c-4bbd5f441189",
+          "is_selected": true,
+          "display_name": "tier_lealtad",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "443aa879-f949-4e65-8d0e-25bd39d2726d",
+          "is_selected": true,
+          "display_name": "ciudad",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "0eb762c5-0fd5-4028-ad59-027800a88ffc",
+      "is_selected": true,
+      "display_name": "DimEmpleado",
+      "type": "semantic_model.table",
+      "description": null,
+      "children": [
+        {
+          "id": "07226da6-be58-41ea-88b4-000f99a6064b",
+          "is_selected": true,
+          "display_name": "empleado_key",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "fe20bc1c-14cf-43f3-834b-9df9d29d2459",
+          "is_selected": true,
+          "display_name": "empleado_id",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "8d60881f-f793-4dfd-9d65-19938a76d813",
+          "is_selected": true,
+          "display_name": "nombre_completo",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "81d29382-45ad-4465-8907-0b19ee44cec0",
+          "is_selected": true,
+          "display_name": "tienda_id",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "68377869-fe43-4857-b997-7e859d3ceb5b",
+          "is_selected": true,
+          "display_name": "puesto",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "08743280-0641-467a-862e-64131e324488",
+          "is_selected": true,
+          "display_name": "fecha_ingreso",
+          "type": "semantic_model.column",
+          "data_type": "DateTime",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "8014560e-0bfa-4c1a-ba3a-768fe97cfd1c",
+          "is_selected": true,
+          "display_name": "salario",
+          "type": "semantic_model.column",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "efb8e7a1-294c-4f85-b573-03f66a676b21",
+          "is_selected": true,
+          "display_name": "documento_identidad",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "2a364040-f212-4970-b958-bc470d8ac636",
+      "is_selected": true,
+      "display_name": "DimFecha",
+      "type": "semantic_model.table",
+      "description": null,
+      "children": [
+        {
+          "id": "d5e3809e-6cde-46bd-a8a5-02343bf79b0e",
+          "is_selected": true,
+          "display_name": "fecha_key",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "d6d28458-973e-4120-8157-b70df5b5d4d3",
+          "is_selected": true,
+          "display_name": "fecha",
+          "type": "semantic_model.column",
+          "data_type": "DateTime",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "34077a5f-bb47-4d46-a7b4-80756053dbde",
+          "is_selected": true,
+          "display_name": "anio",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "af1477d6-8ec7-4794-8356-19f93c4a5a89",
+          "is_selected": true,
+          "display_name": "mes",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "84047098-ec6c-46d8-bd8d-520dfcdaed5f",
+          "is_selected": true,
+          "display_name": "trimestre",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "47db3218-158c-4f29-ad6c-5961073ef725",
+          "is_selected": true,
+          "display_name": "nombre_mes",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "5e4305ad-915e-4883-a2c2-4d84f4521a30",
+          "is_selected": true,
+          "display_name": "dia_semana",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "ec2e0b11-d2b4-4f32-86b4-2b2a169115db",
+      "is_selected": true,
+      "display_name": "DimProducto",
+      "type": "semantic_model.table",
+      "description": null,
+      "children": [
+        {
+          "id": "eaa08c4d-a086-4cdd-b692-feac15b2f49b",
+          "is_selected": true,
+          "display_name": "producto_key",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "dcc33a6d-81d9-448c-b23f-8d812928b3b9",
+          "is_selected": true,
+          "display_name": "sku",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "40004419-a73d-4446-a30d-3bcd5796d6e9",
+          "is_selected": true,
+          "display_name": "nombre_producto",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "e13fe87c-c597-4c5c-89ce-da255a70352e",
+          "is_selected": true,
+          "display_name": "categoria",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "5aa72219-9364-46a9-b7f3-a816f57e09d0",
+          "is_selected": true,
+          "display_name": "subcategoria",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "d92bedbd-2933-488e-be88-7de2923c1980",
+          "is_selected": true,
+          "display_name": "marca",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "a81ffccf-cd08-44df-8006-a0fc5970d644",
+          "is_selected": true,
+          "display_name": "costo_unitario",
+          "type": "semantic_model.column",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "eec4779f-1118-4566-83b7-286cbafb4ac8",
+      "is_selected": true,
+      "display_name": "DimTienda",
+      "type": "semantic_model.table",
+      "description": null,
+      "children": [
+        {
+          "id": "131018a3-f74c-48e5-9acd-7113092af320",
+          "is_selected": true,
+          "display_name": "tienda_key",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "f3a8fd85-106a-4ff3-bad5-4371d431194c",
+          "is_selected": true,
+          "display_name": "tienda_id",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "c8dba296-8171-4ecf-bd08-60a2e62278b8",
+          "is_selected": true,
+          "display_name": "nombre_tienda",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "399598dc-12fa-4386-bdc9-20bd7b6a117e",
+          "is_selected": true,
+          "display_name": "ciudad",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "a36da8ad-5c32-4957-9396-aa532e371ec0",
+          "is_selected": true,
+          "display_name": "pais",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "834c8b1f-f208-4b93-8268-7c92ff9b7cd3",
+          "is_selected": true,
+          "display_name": "region",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "a546bc37-720b-4157-9f6c-57189d79c74b",
+          "is_selected": true,
+          "display_name": "formato_tienda",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "e135cb4d-76e2-4563-a795-1d6ca6591ff6",
+          "is_selected": true,
+          "display_name": "fecha_apertura",
+          "type": "semantic_model.column",
+          "data_type": "DateTime",
+          "description": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "babf03f3-697e-4af2-ae6a-30e9c3c88584",
+      "is_selected": true,
+      "display_name": "FactVentas",
+      "type": "semantic_model.table",
+      "description": null,
+      "children": [
+        {
+          "id": "3572f1cd-b140-41dd-b435-57be5d9d2b93",
+          "is_selected": true,
+          "display_name": "transaccion_id",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "c28c63a0-9351-4f8d-af9a-7fe6c8f66c14",
+          "is_selected": true,
+          "display_name": "fecha_key",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "51e1b72c-0dec-43ac-970d-a0eb9fe93e83",
+          "is_selected": true,
+          "display_name": "tienda_key",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "b1ff21e8-ae97-421f-b655-9f8cff268bc9",
+          "is_selected": true,
+          "display_name": "producto_key",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "7f9bcae8-a969-498e-afc8-2c35d1d8f149",
+          "is_selected": true,
+          "display_name": "empleado_key",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "ee15b7ab-06bc-4f91-aaab-807302308d84",
+          "is_selected": true,
+          "display_name": "cliente_key",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "ee09084c-6e84-4f19-b2ed-58bd41041115",
+          "is_selected": true,
+          "display_name": "cantidad",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "35631942-18fd-4609-89bb-286b3a4ac60c",
+          "is_selected": true,
+          "display_name": "precio_unitario",
+          "type": "semantic_model.column",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "f9765fa3-6168-4928-b499-4caf2bee591b",
+          "is_selected": true,
+          "display_name": "descuento_pct",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "d65529ae-512b-4e78-a1cb-a71e39059461",
+          "is_selected": true,
+          "display_name": "venta_total",
+          "type": "semantic_model.column",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "1a565bd1-5e7c-4b1c-ba4c-a07aed18e47e",
+          "is_selected": true,
+          "display_name": "costo_total",
+          "type": "semantic_model.column",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "5a7f9682-f165-4ae6-8aca-cf5f66304799",
+      "is_selected": true,
+      "display_name": "real_vs_presupuesto",
+      "type": "semantic_model.table",
+      "description": null,
+      "children": [
+        {
+          "id": "135059c1-d796-4092-b1a0-5bc5b7496e18",
+          "is_selected": true,
+          "display_name": "tienda_id",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "4e00cb9f-a946-4ac9-8b65-c9bcf788ac00",
+          "is_selected": true,
+          "display_name": "anio_mes",
+          "type": "semantic_model.column",
+          "data_type": "DateTime",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "dcbc9f2b-41ee-4b9c-aabe-a92d07063450",
+          "is_selected": true,
+          "display_name": "venta_total_real",
+          "type": "semantic_model.column",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "e61efbc3-8e96-42b5-a84f-00962d48dcc0",
+          "is_selected": true,
+          "display_name": "meta_venta",
+          "type": "semantic_model.column",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "edebc641-43af-4a96-81ca-9fb45515e6b5",
+          "is_selected": true,
+          "display_name": "variacion_pct",
+          "type": "semantic_model.column",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "5b020cb7-200e-4467-895d-614efd4e92f7",
+      "is_selected": true,
+      "display_name": "ventas_diarias_por_tienda",
+      "type": "semantic_model.table",
+      "description": null,
+      "children": [
+        {
+          "id": "0e571a88-cff1-478a-bae3-db2a6e714429",
+          "is_selected": true,
+          "display_name": "tienda_key",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "1fd7316a-a4aa-4227-9d89-df2eb1f889a0",
+          "is_selected": true,
+          "display_name": "fecha_key",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "5ca2f744-5ea2-4409-8d32-34a3b3ff1fb6",
+          "is_selected": true,
+          "display_name": "venta_total",
+          "type": "semantic_model.column",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "f75a9ebb-f182-443c-8e66-f7867b917aa7",
+          "is_selected": true,
+          "display_name": "unidades_vendidas",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "4326c178-d0b5-4ecf-9169-7a49b367f002",
+      "is_selected": true,
+      "display_name": "_Medidas",
+      "type": "semantic_model.table",
+      "description": null,
+      "children": [
+        {
+          "id": "04ac3c78-d565-444c-8638-2dae1baca041",
+          "is_selected": true,
+          "display_name": "Costo Total",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "3b9667a7-06a1-44cb-86b2-db530e200f3c",
+          "is_selected": true,
+          "display_name": "Crecimiento Ventas %",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "ba62275b-203f-4c48-bcfb-7998d7aef5fc",
+          "is_selected": true,
+          "display_name": "Cumplimiento %",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "ea63a571-475c-4fa0-840a-b8407c32173e",
+          "is_selected": true,
+          "display_name": "Margen",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "f9b82361-5056-4ee9-a49e-d960c98f0762",
+          "is_selected": true,
+          "display_name": "Margen %",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "d3e4e8ef-2bbf-4a85-a12f-e8e7085a655b",
+          "is_selected": true,
+          "display_name": "Meta Venta",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "53a77389-eb7b-4784-b2a4-f5f08da9421b",
+          "is_selected": true,
+          "display_name": "Ticket Promedio",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "0d406ec1-5436-4070-ae3f-c401fc3d69e6",
+          "is_selected": true,
+          "display_name": "Transacciones",
+          "type": "semantic_model.measure",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "1b93e281-b1ce-42ce-ba25-f75db2b2988d",
+          "is_selected": true,
+          "display_name": "Unidades Vendidas",
+          "type": "semantic_model.measure",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "a0435941-b500-46ca-8f4f-b7b73245c01c",
+          "is_selected": true,
+          "display_name": "Variación %",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "fd9fb6e9-567c-4a7b-bd15-37e13a8e0374",
+          "is_selected": true,
+          "display_name": "Variación $",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "3642f8e5-450c-4a79-b4cf-b6c96d6b6aaf",
+          "is_selected": true,
+          "display_name": "Venta Real",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "ef08a64c-0f35-4af4-8e4d-456a7a546f7f",
+          "is_selected": true,
+          "display_name": "Ventas Año Anterior",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "8631b8ca-7977-4b00-b64a-b02b4a59ecaa",
+          "is_selected": true,
+          "display_name": "Ventas Totales",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "fb547e09-2e3a-4e72-9afd-9b2fe64ca2cf",
+          "is_selected": true,
+          "display_name": "Puestos",
+          "type": "semantic_model.measure",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "1f163b18-0ebc-4cfc-90f6-567c1d77109c",
+          "is_selected": true,
+          "display_name": "Tiendas con Empleados",
+          "type": "semantic_model.measure",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "5164f1ad-515f-422d-a661-f5babf8d0ce3",
+          "is_selected": true,
+          "display_name": "Total Empleados",
+          "type": "semantic_model.measure",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        }
+      ]
+    }
+  ]
+}

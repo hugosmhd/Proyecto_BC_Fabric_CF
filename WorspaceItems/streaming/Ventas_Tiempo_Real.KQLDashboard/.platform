@@ -1,11 +1,12 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
   "metadata": {
-    "type": "SemanticModel",
-    "displayName": "Testing"
+    "type": "KQLDashboard",
+    "displayName": "Ventas_Tiempo_Real",
+    "description": "Ventas_Tiempo_Real"
   },
   "config": {
     "version": "2.0",
-    "logicalId": "4302d621-0f41-4e4d-be37-5435073256c9"
+    "logicalId": "f670fb99-9779-8f8a-41f7-44e5ac0d0a3a"
   }
 }

@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "DataAgent",
+    "displayName": "tech-retail"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "e2191e2a-cbba-8a69-4b8c-0eed889af53d"
+  }
+}

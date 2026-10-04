@@ -1,0 +1,433 @@
+{
+  "schema_version": 84,
+  "flavor": "RTDashboard_Regular",
+  "changeDetection": {
+    "kind": "manualUpdates"
+  },
+  "tiles": [
+    {
+      "id": "ad52986a-f99b-49a7-a5aa-89b8f998e9d1",
+      "title": "Ventas durante los últimos 30 minutos",
+      "visualType": "column",
+      "pageId": "00f0e139-ba4e-4f41-bc52-53c7ca6fa62c",
+      "layout": {
+        "x": 9,
+        "y": 0,
+        "width": 7,
+        "height": 6
+      },
+      "queryRef": {
+        "kind": "query",
+        "queryId": "e77ba992-0ee2-48a0-852b-bf41544c6439"
+      },
+      "visualOptions": {
+        "multipleYAxes": {
+          "base": {
+            "id": "-1",
+            "label": "",
+            "columns": [],
+            "yAxisMaximumValue": null,
+            "yAxisMinimumValue": null,
+            "yAxisScale": "linear",
+            "horizontalLines": []
+          },
+          "additional": [],
+          "showMultiplePanels": false
+        },
+        "seriesColors": {},
+        "hideLegend": false,
+        "legendLocation": "bottom",
+        "xColumnTitle": "",
+        "xColumn": null,
+        "yColumns": null,
+        "seriesColumns": null,
+        "xAxisScale": "linear",
+        "verticalLine": "",
+        "crossFilterDisabled": false,
+        "drillthroughDisabled": false,
+        "forceAxisTicks": false,
+        "crossFilter": [],
+        "drillthrough": []
+      }
+    },
+    {
+      "id": "70036820-ce34-4caa-9951-4dc8b84352ec",
+      "title": "Ventas",
+      "visualType": "kpi",
+      "pageId": "00f0e139-ba4e-4f41-bc52-53c7ca6fa62c",
+      "layout": {
+        "x": 0,
+        "y": 0,
+        "width": 3,
+        "height": 3
+      },
+      "queryRef": {
+        "kind": "query",
+        "queryId": "57ceece9-02ab-4572-abf3-951138fea4af"
+      },
+      "visualOptions": {
+        "kpi__valueColumn": null,
+        "kpi__visualType": "number",
+        "kpi__minValue": 0,
+        "kpi__maxValue": 100,
+        "kpi__showMinMaxLabels": true,
+        "kpi__conditionalFormattingEnabled": true,
+        "kpi__valueFormat": {
+          "format": "automatic",
+          "maxDecimalPlaces": 2,
+          "showUnitLabel": true,
+          "unit": "Q"
+        },
+        "kpi__conditionalFormatting": {
+          "showBadges": false,
+          "showZoneMarks": false,
+          "zone1": {
+            "range": [
+              61,
+              100
+            ],
+            "indicator": {
+              "icon": "recommended",
+              "label": "OK"
+            }
+          },
+          "zone2": {
+            "range": [
+              34,
+              61
+            ],
+            "indicator": {
+              "icon": "recommended",
+              "label": "Warning"
+            }
+          },
+          "zone3": {
+            "range": [
+              0,
+              34
+            ],
+            "indicator": {
+              "icon": "recommended",
+              "label": "Danger"
+            }
+          }
+        },
+        "kpi__referenceLines": {
+          "showLabels": false,
+          "lines": []
+        },
+        "kpi__styling": {
+          "arcAngle": 220,
+          "arcThickness": 0.3,
+          "capStyle": "rounded",
+          "gradientFill": false
+        }
+      }
+    },
+    {
+      "id": "cb3fa93c-6445-46a3-ad2b-ed6bc65d9856",
+      "title": "Anomalias",
+      "visualType": "kpi",
+      "pageId": "00f0e139-ba4e-4f41-bc52-53c7ca6fa62c",
+      "layout": {
+        "x": 3,
+        "y": 0,
+        "width": 3,
+        "height": 3
+      },
+      "queryRef": {
+        "kind": "query",
+        "queryId": "1dbb8807-3cb8-48b1-8208-bb27be419801"
+      },
+      "visualOptions": {
+        "kpi__valueColumn": null,
+        "kpi__visualType": "number",
+        "kpi__minValue": 0,
+        "kpi__maxValue": 100,
+        "kpi__showMinMaxLabels": true,
+        "kpi__conditionalFormattingEnabled": true,
+        "kpi__valueFormat": {
+          "format": "full",
+          "maxDecimalPlaces": 2,
+          "showUnitLabel": false,
+          "unit": "%"
+        },
+        "kpi__conditionalFormatting": {
+          "showBadges": false,
+          "showZoneMarks": true,
+          "zone1": {
+            "range": [
+              0,
+              0
+            ],
+            "indicator": {
+              "icon": "recommended",
+              "label": "OK"
+            }
+          },
+          "zone2": {
+            "range": [
+              0,
+              1
+            ],
+            "indicator": {
+              "icon": "recommended",
+              "label": "Warning"
+            }
+          },
+          "zone3": {
+            "range": [
+              1,
+              100
+            ],
+            "indicator": {
+              "icon": "recommended",
+              "label": "Danger"
+            }
+          }
+        },
+        "kpi__referenceLines": {
+          "showLabels": false,
+          "lines": []
+        },
+        "kpi__styling": {
+          "arcAngle": 220,
+          "arcThickness": 0.3,
+          "capStyle": "rounded",
+          "gradientFill": false
+        }
+      }
+    },
+    {
+      "id": "84b159f4-1927-4307-b230-78b5f3f2174a",
+      "title": "Unidades",
+      "visualType": "kpi",
+      "pageId": "00f0e139-ba4e-4f41-bc52-53c7ca6fa62c",
+      "layout": {
+        "x": 6,
+        "y": 0,
+        "width": 3,
+        "height": 3
+      },
+      "queryRef": {
+        "kind": "query",
+        "queryId": "ae265fb9-1947-4ac2-a733-d948864a9607"
+      },
+      "visualOptions": {
+        "kpi__valueColumn": null,
+        "kpi__visualType": "number",
+        "kpi__minValue": 0,
+        "kpi__maxValue": 100,
+        "kpi__showMinMaxLabels": true,
+        "kpi__conditionalFormattingEnabled": true,
+        "kpi__valueFormat": {
+          "format": "automatic",
+          "maxDecimalPlaces": 2,
+          "showUnitLabel": false,
+          "unit": "%"
+        },
+        "kpi__conditionalFormatting": {
+          "showBadges": false,
+          "showZoneMarks": true,
+          "zone1": {
+            "range": [
+              50,
+              100
+            ],
+            "indicator": {
+              "icon": "recommended",
+              "label": "OK"
+            }
+          },
+          "zone2": {
+            "range": [
+              15,
+              50
+            ],
+            "indicator": {
+              "icon": "recommended",
+              "label": "Warning"
+            }
+          },
+          "zone3": {
+            "range": [
+              0,
+              15
+            ],
+            "indicator": {
+              "icon": "recommended",
+              "label": "Danger"
+            }
+          }
+        },
+        "kpi__referenceLines": {
+          "showLabels": false,
+          "lines": []
+        },
+        "kpi__styling": {
+          "arcAngle": 220,
+          "arcThickness": 0.3,
+          "capStyle": "rounded",
+          "gradientFill": false
+        }
+      }
+    },
+    {
+      "id": "cbc87b03-5b42-4f99-be20-5fb588a58fab",
+      "title": "Últimas transacciones",
+      "visualType": "table",
+      "pageId": "00f0e139-ba4e-4f41-bc52-53c7ca6fa62c",
+      "layout": {
+        "x": 0,
+        "y": 6,
+        "width": 16,
+        "height": 8
+      },
+      "queryRef": {
+        "kind": "query",
+        "queryId": "9f86e6eb-0368-4ce0-b2ad-0b5ff0960f62"
+      },
+      "visualOptions": {
+        "table__enableRenderLinks": true,
+        "colorRulesDisabled": false,
+        "crossFilterDisabled": false,
+        "drillthroughDisabled": false,
+        "crossFilter": [],
+        "drillthrough": [],
+        "table__renderLinks": [],
+        "colorRules": [
+          {
+            "id": "96c27d19-b598-4575-9a34-c5cee157319d",
+            "ruleType": "colorByCondition",
+            "applyToColumn": "Estado",
+            "hideText": false,
+            "applyTo": "cells",
+            "conditions": [
+              {
+                "operator": "==",
+                "column": "Estado",
+                "values": [
+                  "Anomalía"
+                ]
+              }
+            ],
+            "chainingOperator": "and",
+            "colorStyle": "bold",
+            "color": "yellow",
+            "tag": "",
+            "icon": "warning",
+            "ruleName": "",
+            "visualType": "table"
+          },
+          {
+            "id": "0238631a-2022-4ad3-88a2-f729503dcece",
+            "ruleType": "colorByCondition",
+            "applyToColumn": null,
+            "hideText": false,
+            "applyTo": "cells",
+            "conditions": [
+              {
+                "operator": "==",
+                "column": "Estado",
+                "values": [
+                  "Normal"
+                ]
+              }
+            ],
+            "chainingOperator": "and",
+            "colorStyle": "bold",
+            "color": "green",
+            "tag": "",
+            "icon": "completed",
+            "ruleName": "",
+            "visualType": "table"
+          }
+        ]
+      }
+    }
+  ],
+  "baseQueries": [],
+  "parameters": [
+    {
+      "kind": "duration",
+      "id": "c738132c-ad58-4b42-8952-1bcc55397f97",
+      "displayName": "Time range",
+      "description": "",
+      "beginVariableName": "_startTime",
+      "endVariableName": "_endTime",
+      "defaultValue": {
+        "kind": "dynamic",
+        "count": 1,
+        "unit": "hours"
+      },
+      "showOnPages": {
+        "kind": "all"
+      }
+    }
+  ],
+  "dataSources": [
+    {
+      "id": "62b13f87-0adc-4af3-9408-4a2333e6fcbd",
+      "kind": "kusto-trident",
+      "name": "EH-ventas",
+      "clusterUri": "",
+      "databaseArtifactId": "2fa62385-53cf-4e7f-8280-acb4c5ba48c9",
+      "database": "c5ba48c9-acb4-8280-4e7f-53cf2fa62385",
+      "workspace": "00000000-0000-0000-0000-000000000000"
+    }
+  ],
+  "pages": [
+    {
+      "name": "Page 1",
+      "id": "00f0e139-ba4e-4f41-bc52-53c7ca6fa62c"
+    }
+  ],
+  "queries": [
+    {
+      "dataSource": {
+        "kind": "inline",
+        "dataSourceId": "62b13f87-0adc-4af3-9408-4a2333e6fcbd"
+      },
+      "text": "['raw-ventas']\r\n| extend\r\n    timestamp_evento = todatetime(timestamp_evento),\r\n    venta_total = cantidad * precio_unitario *\r\n        (1 - todouble(descuento_pct) / 100.0)\r\n| where timestamp_evento > ago(30m)\r\n| summarize ventas = sum(venta_total)\r\n    by bin(timestamp_evento, 1m)\r\n| order by timestamp_evento asc\r\n",
+      "id": "e77ba992-0ee2-48a0-852b-bf41544c6439",
+      "usedVariables": []
+    },
+    {
+      "dataSource": {
+        "kind": "inline",
+        "dataSourceId": "62b13f87-0adc-4af3-9408-4a2333e6fcbd"
+      },
+      "text": "['raw-ventas']\r\n| extend\r\n    timestamp_evento = todatetime(timestamp_evento),\r\n    venta_total = cantidad * precio_unitario *\r\n        (1 - todouble(descuento_pct) / 100.0)\r\n| where timestamp_evento > ago(30m)\r\n| summarize ventas = sum(venta_total)",
+      "id": "57ceece9-02ab-4572-abf3-951138fea4af",
+      "usedVariables": []
+    },
+    {
+      "dataSource": {
+        "kind": "inline",
+        "dataSourceId": "62b13f87-0adc-4af3-9408-4a2333e6fcbd"
+      },
+      "text": "['raw-ventas']\r\n| extend\r\n    timestamp_evento = todatetime(timestamp_evento),\r\n    es_anomalia = descuento_pct >= 50\r\n| where timestamp_evento > ago(30m)\r\n| summarize\r\n    anomalias = countif(es_anomalia == true)",
+      "id": "1dbb8807-3cb8-48b1-8208-bb27be419801",
+      "usedVariables": []
+    },
+    {
+      "dataSource": {
+        "kind": "inline",
+        "dataSourceId": "62b13f87-0adc-4af3-9408-4a2333e6fcbd"
+      },
+      "text": "['raw-ventas']\r\n| extend\r\n    timestamp_evento = todatetime(timestamp_evento)\r\n| where timestamp_evento > ago(30m)\r\n| summarize\r\n    unidades = sum(cantidad)",
+      "id": "ae265fb9-1947-4ac2-a733-d948864a9607",
+      "usedVariables": []
+    },
+    {
+      "dataSource": {
+        "kind": "inline",
+        "dataSourceId": "62b13f87-0adc-4af3-9408-4a2333e6fcbd"
+      },
+      "text": "['raw-ventas']\r\n| extend\r\n    timestamp_evento = todatetime(timestamp_evento),\r\n    es_anomalia = iff(descuento_pct >= 50, \"Anomalía\", \"Normal\")\r\n| project\r\n    Hora = timestamp_evento,\r\n    Tienda = tienda_id,\r\n    SKU = sku,\r\n    Cantidad = cantidad,\r\n    Descuento = descuento_pct,\r\n    Estado = es_anomalia",
+      "id": "9f86e6eb-0368-4ce0-b2ad-0b5ff0960f62",
+      "usedVariables": []
+    }
+  ],
+  "embeddedApps": []
+}
