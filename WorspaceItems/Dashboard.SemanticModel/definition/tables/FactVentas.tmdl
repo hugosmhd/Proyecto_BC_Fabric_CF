@@ -1,0 +1,116 @@
+table FactVentas
+	lineageTag: babf03f3-697e-4af2-ae6a-30e9c3c88584
+
+	column transaccion_id
+		dataType: string
+		lineageTag: 3572f1cd-b140-41dd-b435-57be5d9d2b93
+		summarizeBy: none
+		sourceColumn: transaccion_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column fecha_key
+		dataType: int64
+		formatString: 0
+		lineageTag: c28c63a0-9351-4f8d-af9a-7fe6c8f66c14
+		summarizeBy: none
+		sourceColumn: fecha_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column tienda_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 51e1b72c-0dec-43ac-970d-a0eb9fe93e83
+		summarizeBy: sum
+		sourceColumn: tienda_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column producto_key
+		dataType: int64
+		formatString: 0
+		lineageTag: b1ff21e8-ae97-421f-b655-9f8cff268bc9
+		summarizeBy: none
+		sourceColumn: producto_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column empleado_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 7f9bcae8-a969-498e-afc8-2c35d1d8f149
+		summarizeBy: none
+		sourceColumn: empleado_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column cliente_key
+		dataType: int64
+		formatString: 0
+		lineageTag: ee15b7ab-06bc-4f91-aaab-807302308d84
+		summarizeBy: none
+		sourceColumn: cliente_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column cantidad
+		dataType: int64
+		formatString: 0
+		lineageTag: ee09084c-6e84-4f19-b2ed-58bd41041115
+		summarizeBy: sum
+		sourceColumn: cantidad
+
+		annotation SummarizationSetBy = Automatic
+
+	column precio_unitario
+		dataType: double
+		lineageTag: 35631942-18fd-4609-89bb-286b3a4ac60c
+		summarizeBy: sum
+		sourceColumn: precio_unitario
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column descuento_pct
+		dataType: int64
+		formatString: 0
+		lineageTag: f9765fa3-6168-4928-b499-4caf2bee591b
+		summarizeBy: sum
+		sourceColumn: descuento_pct
+
+		annotation SummarizationSetBy = Automatic
+
+	column venta_total
+		dataType: double
+		lineageTag: d65529ae-512b-4e78-a1cb-a71e39059461
+		summarizeBy: sum
+		sourceColumn: venta_total
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column costo_total
+		dataType: double
+		lineageTag: 1a565bd1-5e7c-4b1c-ba4c-a07aed18e47e
+		summarizeBy: sum
+		sourceColumn: costo_total
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition FactVentas = m
+		mode: import
+		source =
+				let
+				    Origen = Sql.Databases("fxboiim5iaxevdrrqunv7n6l3q-ee4cunwqyk6utl3kpflne3zap4.datawarehouse.fabric.microsoft.com"),
+				    WareHouseGold = Origen{[Name="WareHouseGold"]}[Data],
+				    gold_FactVentas = WareHouseGold{[Schema="gold",Item="FactVentas"]}[Data]
+				in
+				    gold_FactVentas
+
+	annotation PBI_ResultType = Table
+

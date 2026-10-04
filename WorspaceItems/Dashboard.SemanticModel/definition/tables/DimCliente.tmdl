@@ -1,0 +1,73 @@
+table DimCliente
+	lineageTag: 2e66be0c-e29b-4add-99c9-6cf341385759
+
+	column cliente_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 94000d1c-5ad6-45dd-812f-c31dac2796f4
+		summarizeBy: none
+		sourceColumn: cliente_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column cliente_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 9f6925de-cf06-4f84-ba49-74da53aae45e
+		summarizeBy: sum
+		sourceColumn: cliente_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column nombre_completo
+		dataType: string
+		lineageTag: ea89e8ab-6087-479e-976b-12a7c34a593d
+		summarizeBy: none
+		sourceColumn: nombre_completo
+
+		annotation SummarizationSetBy = Automatic
+
+	column fecha_registro
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 9bdde6c6-2e42-40e8-a9c5-a3167d1a6276
+		summarizeBy: none
+		sourceColumn: fecha_registro
+
+		variation Variación
+			isDefault
+			relationship: bbab928e-5517-4532-86bc-d229865bea13
+			defaultHierarchy: LocalDateTable_d95f5aef-c8ef-4a60-a411-3738d888bec9.'Jerarquía de fechas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column tier_lealtad
+		dataType: string
+		lineageTag: 5de3b728-6664-4883-a35c-4bbd5f441189
+		summarizeBy: none
+		sourceColumn: tier_lealtad
+
+		annotation SummarizationSetBy = Automatic
+
+	column ciudad
+		dataType: string
+		lineageTag: 443aa879-f949-4e65-8d0e-25bd39d2726d
+		summarizeBy: none
+		sourceColumn: ciudad
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimCliente = m
+		mode: import
+		source =
+				let
+				    Origen = Sql.Databases("fxboiim5iaxevdrrqunv7n6l3q-ee4cunwqyk6utl3kpflne3zap4.datawarehouse.fabric.microsoft.com"),
+				    WareHouseGold = Origen{[Name="WareHouseGold"]}[Data],
+				    gold_DimCliente = WareHouseGold{[Schema="gold",Item="DimCliente"]}[Data]
+				in
+				    gold_DimCliente
+
+	annotation PBI_ResultType = Table
+

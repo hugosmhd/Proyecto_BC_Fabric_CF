@@ -1,0 +1,11 @@
+role Region_Chile
+	modelPermission: read
+
+	tablePermission DimTienda = [region] == "Chile"
+
+	tablePermission DimEmpleado
+
+		columnPermission salario = none
+
+	annotation PBI_Id = 0faa3a69be0743c9982c29875a2c7a1d
+

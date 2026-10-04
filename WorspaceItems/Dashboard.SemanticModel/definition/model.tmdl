@@ -1,0 +1,41 @@
+model Model
+	culture: es-MX
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: es-GT
+	valueFilterBehavior: independent
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_QueryOrder = ["DimCliente","DimEmpleado","DimFecha","DimProducto","DimTienda","FactVentas","real_vs_presupuesto","ventas_diarias_por_tienda","_Medidas"]
+
+annotation __TEdtr = 1
+
+ref table DimCliente
+ref table DateTableTemplate_20d08e6e-9dc7-421f-bbb8-61eb70609356
+ref table LocalDateTable_d95f5aef-c8ef-4a60-a411-3738d888bec9
+ref table DimEmpleado
+ref table LocalDateTable_f83a86d7-9d31-437a-bc1f-bcd2bc28941a
+ref table DimFecha
+ref table LocalDateTable_07c9cfb2-64c4-46dc-af57-2a04c60a97fc
+ref table DimProducto
+ref table DimTienda
+ref table LocalDateTable_f4558818-a7ab-4e37-a7e2-3af77c2530b1
+ref table FactVentas
+ref table real_vs_presupuesto
+ref table LocalDateTable_bb8d9855-3d35-4afc-a9ae-a9877f908f09
+ref table ventas_diarias_por_tienda
+ref table _Medidas
+
+ref role Region_Mexico
+ref role Region_Argentina
+ref role Region_Chile
+ref role Region_Colombia
+ref role Region_Peru
+ref role Default
+ref role RRHH
+
+ref cultureInfo es-MX
+

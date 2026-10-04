@@ -1,0 +1,111 @@
+{
+  "sources": [
+    {
+      "id": "243052f7-120d-481f-b301-4711bb452956",
+      "name": "azure-event-hub",
+      "type": "AzureEventHubExtended",
+      "properties": {
+        "dataConnectionId": "5b4d814a-2b15-4489-9c6d-0cb4442e9ce5",
+        "consumerGroupName": "$Default",
+        "startPosition": "Latest"
+      }
+    }
+  ],
+  "destinations": [
+    {
+      "id": "6d01e781-2101-4be2-be7e-aa842a050d71",
+      "name": "Eventhouse",
+      "type": "Eventhouse",
+      "properties": {
+        "dataIngestionMode": "ProcessedIngestion",
+        "workspaceId": "00000000-0000-0000-0000-000000000000",
+        "itemId": "c5ba48c9-acb4-8280-4e7f-53cf2fa62385",
+        "databaseName": "EH-ventas",
+        "tableName": "raw-ventas",
+        "inputSerialization": {
+          "type": "Json",
+          "properties": {
+            "encoding": "UTF8"
+          }
+        }
+      },
+      "inputNodes": [
+        {
+          "name": "ES-ventas-stream"
+        }
+      ],
+      "inputSchemas": [
+        {
+          "name": "ES-ventas-stream",
+          "schema": {
+            "columns": [
+              {
+                "name": "evento_id",
+                "type": "Nvarchar(max)",
+                "fields": null,
+                "items": null
+              },
+              {
+                "name": "timestamp_evento",
+                "type": "Nvarchar(max)",
+                "fields": null,
+                "items": null
+              },
+              {
+                "name": "tienda_id",
+                "type": "BigInt",
+                "fields": null,
+                "items": null
+              },
+              {
+                "name": "empleado_id",
+                "type": "BigInt",
+                "fields": null,
+                "items": null
+              },
+              {
+                "name": "sku",
+                "type": "Nvarchar(max)",
+                "fields": null,
+                "items": null
+              },
+              {
+                "name": "cantidad",
+                "type": "BigInt",
+                "fields": null,
+                "items": null
+              },
+              {
+                "name": "precio_unitario",
+                "type": "Float",
+                "fields": null,
+                "items": null
+              },
+              {
+                "name": "descuento_pct",
+                "type": "BigInt",
+                "fields": null,
+                "items": null
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "streams": [
+    {
+      "id": "3d71341b-2e32-49e3-84a3-078f88a0291b",
+      "name": "ES-ventas-stream",
+      "type": "DefaultStream",
+      "properties": {},
+      "inputNodes": [
+        {
+          "name": "azure-event-hub"
+        }
+      ]
+    }
+  ],
+  "operators": [],
+  "compatibilityLevel": "1.1"
+}

@@ -1,0 +1,74 @@
+table DimProducto
+	lineageTag: ec2e0b11-d2b4-4f32-86b4-2b2a169115db
+
+	column producto_key
+		dataType: int64
+		formatString: 0
+		lineageTag: eaa08c4d-a086-4cdd-b692-feac15b2f49b
+		summarizeBy: none
+		sourceColumn: producto_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column sku
+		dataType: string
+		lineageTag: dcc33a6d-81d9-448c-b23f-8d812928b3b9
+		summarizeBy: none
+		sourceColumn: sku
+
+		annotation SummarizationSetBy = Automatic
+
+	column nombre_producto
+		dataType: string
+		lineageTag: 40004419-a73d-4446-a30d-3bcd5796d6e9
+		summarizeBy: none
+		sourceColumn: nombre_producto
+
+		annotation SummarizationSetBy = Automatic
+
+	column categoria
+		dataType: string
+		lineageTag: e13fe87c-c597-4c5c-89ce-da255a70352e
+		summarizeBy: none
+		sourceColumn: categoria
+
+		annotation SummarizationSetBy = Automatic
+
+	column subcategoria
+		dataType: string
+		lineageTag: 5aa72219-9364-46a9-b7f3-a816f57e09d0
+		summarizeBy: none
+		sourceColumn: subcategoria
+
+		annotation SummarizationSetBy = Automatic
+
+	column marca
+		dataType: string
+		lineageTag: d92bedbd-2933-488e-be88-7de2923c1980
+		summarizeBy: none
+		sourceColumn: marca
+
+		annotation SummarizationSetBy = Automatic
+
+	column costo_unitario
+		dataType: double
+		lineageTag: a81ffccf-cd08-44df-8006-a0fc5970d644
+		summarizeBy: none
+		sourceColumn: costo_unitario
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition DimProducto = m
+		mode: import
+		source =
+				let
+				    Origen = Sql.Databases("fxboiim5iaxevdrrqunv7n6l3q-ee4cunwqyk6utl3kpflne3zap4.datawarehouse.fabric.microsoft.com"),
+				    WareHouseGold = Origen{[Name="WareHouseGold"]}[Data],
+				    gold_DimProducto = WareHouseGold{[Schema="gold",Item="DimProducto"]}[Data]
+				in
+				    gold_DimProducto
+
+	annotation PBI_ResultType = Table
+
